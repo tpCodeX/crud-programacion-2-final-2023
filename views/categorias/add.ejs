@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Categoría</title>
+</head>
+<body>
+    <h1>Agregar Categoría</h1>
+    <div class="form-container">
+    <form action="/categorias/add/" method="POST">
+        <label for="name">Nombre Categoría:</label>
+        <input id="name" type="text" name="name">
+        <label for="visibilidad">Visibilidad:</label>
+        <select name="visibilidad" id="visibilidad">
+            <option value="1">Visible</option>
+            <option value="0">No visible</option>
+        </select>
+        <button type="submit">Agregar Categoría</button>
+    </form>
+</div>
+
+    <div class="button-container">
+        <a href="/categorias">Volver</a>
+      </div>
+</body>
+</html>

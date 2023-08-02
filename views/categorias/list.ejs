@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorias</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/categorias/tabla-styles.css">
+</head>
+<body>
+    <h1>Lista de Categorias</h1>
+    <div class="tabla-container">
+    <table class="tabla">
+        <thead>
+            <th class="tabla-th" scope="col">ID</th>
+          <th class="tabla-th" scope="col">Nombre</th>
+          <th class="tabla-th" scope="col">Acciones</th>
+        </thead>
+        <tbody>
+          <% categorias.forEach(function(categoria) { %>
+            <tr class="tabla-tr">
+              <td class="tabla-td">
+                <%= categoria.id %>
+              </td>
+              <td class="tabla-td">
+                <%= categoria.name %>
+              </td>
+              <td class="tabla-td-icons">
+                <div class="tabla-icons">
+                        <form action="/categorias/edit/" method="POST">
+                            <input type="hidden" name="id" value="<%= categoria.id %>">
+                            <button type="submit" class="boton boton-edit"><i class="bi bi-pencil"></i></button>
+                        </form>
+                        <form action="/categorias/delete/" method="POST">
+                            <input type="hidden" name="id" value="<%= categoria.id %>">
+                            <button type="submit" class="boton boton-delete"><i class="bi bi-trash"></i></button>
+                        </form>
+                </div>
+            </td>
+            </tr>
+            <% }) %>
+        </tbody>
+      </table>
+      </div>
+      <div class="button-container button-container-listView">
+        <a href="/categorias/add/">Agregar Categoría</a>
+      </div>
+      
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    </body>
+</html>

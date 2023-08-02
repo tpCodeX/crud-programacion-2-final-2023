@@ -1,0 +1,19 @@
+.message-container{
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    text-align: center;
+    color:  rgb(167, 33, 33);
+}
+
+.message{
+
+    font-size: 3em;
+    -webkit-text-stroke: .5px rgb(0, 0, 0);
+}
+
+#timer{
+    font-size: 3em;
+    color: rgb(24, 104, 24);
+    text-shadow: #4f4d4d 1px 0 5px;
+}
