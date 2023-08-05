@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛖 CRUD HOME</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+</head>
+<body>
+    <%- include('navbar.ejs') %>
+    <div class="container">
+        <div class="card-container">
+            <h2 class="card-title">Usuarios</h2>
+            <div class="card-button"><a href="/users/" class="card-button-link">Ver Usuarios</a></div>
+        </div>
+        <div class="card-container">
+            <h2 class="card-title">Productos</h2>
+            <h2></h2>
+            <div class="card-button"><a href="/productos/" class="card-button-link">Ver Productos</a></div>
+        </div>
+        <div class="card-container">
+            <h2 class="card-title">Categorias</h2>
+            <div class="card-button"><a href="/categorias/" class="card-button-link">Ver Categorias</a></div>
+        </div>
+    </div>
+</body>
+</html>

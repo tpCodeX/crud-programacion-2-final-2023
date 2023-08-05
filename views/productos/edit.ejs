@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/categorias/button-styles.css">
+    <link rel="stylesheet" href="/css/form-styles.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <title>Editar Producto</title>
+</head>
+<body>
+    <%- include('../navbar.ejs') %>
+    <h1 class="titulo">Editar Producto</h1>
+    <div class="border-div"></div>
+    
+    <div class="form-container">
+        <form action="/productos/editar/" method="POST">
+            <input type="hidden" name="id" readonly value="<%= product.id %>">
+            
+            <div class="form-input-container">
+                <label class="form-label" for="name"><span class="span">N</span>ombre <span class="span">P</span>roducto<span class="span">:</span></label>
+                <input class="form-input" id="name" type="text" name="name"> <br>
+            </div>
+            <div class="form-input-container">
+                <label class="form-label" for="price"><span class="span">P</span>recio <span class="span">U</span>nitario<span class="span">:</span></label>
+                <input class="form-input" id="price" type="number" name="price"> <br>
+            </div>
+            <div class="form-input-container">
+                <label class="form-label" for="stock"><span class="span">S</span>tock<span class="span">:</span></label>
+                <input class="form-input" id="stock" type="number" name="stock"> <br>
+            </div>
+            
+            <div class="form-select-container">
+                <label class="form-label" for="categoryId"><span class="span">C</span>ategoría<span class="span">:</span></label>
+                <select class="form-select" name="categoryId" id="categoryId" aria-placeholder="Categoría">
+                    <option selected disabled hidden>Seleccionar Categoría</option>
+                    <% categorias.forEach(categoria => { %>
+                        <option value="<%= categoria.id %>"><%= categoria.name %></option>
+                    <% }) %>
+                </select>
+            </div>
+            
+            <div class="button-submit">
+                <button class="generic-button" type="submit"><span class="span">E</span>ditar<span class="span">C</span>ategoría <span class="flechita">➡</span></button>
+            </div>
+        </form>
+    </div>
+    <div class="border-div"></div>
+    
+    <h3 class="subtitulo">Información del producto a editar:</h3>
+    
+    <div class="info-container">
+        <p class="info-item"><b class="span">ID:</b> <span class="info-item-variable"><%= product.id %></span></p>
+        <p class="info-item"><b class="span">Nombre:</b> <span class="info-item-variable"><%= product.name %></span></p>
+    </div>
+    
+    <div class="border-div"></div>
+
+    <div class="button-back button-back-view">
+            <a href="/productos/"><span class="flechita">⬅</span>Volver</a>
+    </div>
+
+
+</body>
+</html>

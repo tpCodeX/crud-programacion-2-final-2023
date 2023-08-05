@@ -1,0 +1,14 @@
+.login-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    position: absolute;
+    left: 15em;
+    top: 4.5em;
+}
+
+.form-input-container{
+    padding: 0;
+    margin: 0;
+}

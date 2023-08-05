@@ -4,24 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agregar Categoría</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/categorias/button-styles.css">
+    <link rel="stylesheet" href="/css/form-styles.css">
+    <link rel="stylesheet" href="/css/navbar.css">
 </head>
 <body>
-    <h1>Agregar Categoría</h1>
+    <%- include('../navbar.ejs') %>
+    <h1 class="titulo">Agregar Categoría</h1>
     <div class="form-container">
     <form action="/categorias/add/" method="POST">
-        <label for="name">Nombre Categoría:</label>
-        <input id="name" type="text" name="name">
-        <label for="visibilidad">Visibilidad:</label>
-        <select name="visibilidad" id="visibilidad">
-            <option value="1">Visible</option>
-            <option value="0">No visible</option>
-        </select>
-        <button type="submit">Agregar Categoría</button>
+        <div class="form-input-container">
+            <label class="form-label" for="name"><span class="span">N</span>ombre <span class="span">C</span>ategoría<span class="span">:</span></label>
+            <input class="form-input" id="name" type="text" name="name">
+        </div>
+        <div class="form-select-container">
+            <label class="form-label" for="visibilidad"><span class="span">V</span>isibilidad<span class="span">:</span></label>
+            <select class="form-select" name="visibilidad" id="visibilidad">
+                <option value="1">Visible</option>
+                <option value="0">No visible</option>
+            </select>
+        </div>
+        <div class="button-submit">
+            <button class="generic-button" type="submit"><span class="span">A</span>gregar➕</button>
+        </div>
     </form>
 </div>
 
-    <div class="button-container">
-        <a href="/categorias">Volver</a>
+    <div class="button-back button-back-view">
+        <a href="/categorias"><span class="flechita">⬅</span> Volver</a>
       </div>
 </body>
 </html>

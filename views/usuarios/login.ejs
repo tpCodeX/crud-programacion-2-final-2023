@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚶🏻LogIn</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/form-styles.css">
+</head>
+<body>
+    <%- include('../navbar.ejs') %>
+    <div class="login-container">
+        <form action="/users/login" method="POST">            
+            <div class="form-input-container">
+                <label class="form-label" for="email">E<span class="span">-</span>mail<span class="span">:</span></label>
+                <input class="form-input" id="email" type="email" name="email"> <br>
+            </div>
+            <div class="form-input-container">
+                <label class="form-label" for="password"><span class="span">P</span>assword<span class="span">:</span></label>
+                <input class="form-input" id="password" type="password" name="password"> <br>
+            </div>
+            <div class="button-submit">
+                <button class="generic-button" type="submit"><span class="span">I</span>ngresar<span class="flechita">➡</span></button>
+            </div>
+        </form>
+    </div>
+    <div class="button-back button-back-productListView">
+        <a href="/"><span class="flechita">⬅</span>Volver</a>
+      </div>
+</body>
+</html>

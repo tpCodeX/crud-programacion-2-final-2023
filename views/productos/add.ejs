@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Producto</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/categorias/button-styles.css">
+    <link rel="stylesheet" href="/css/form-styles.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+</head>
+<body>
+    <%- include('../navbar.ejs') %>
+    <h1 class="titulo">Agregar Producto</h1>
+    <div class="form-container">
+    <form action="/productos/add/" method="POST">
+        <div class="form-input-container">
+            <label class="form-label" for="name"><span class="span">N</span>ombre <span class="span">P</span>roducto<span class="span">:</span></label>
+            <input class="form-input" id="name" type="text" name="name">
+        </div>
+        <div class="form-input-container">
+            <label class="form-label" for="price"><span class="span">P</span>recio<span class="span">:</span></label>
+            <input class="form-input" id="price" type="number" name="price">
+        </div>
+        <div class="form-input-container">
+            <label class="form-label" for="stock"><span class="span">S</span>tock<span class="span">:</span></label>
+            <input class="form-input" id="stock" type="number" name="stock">
+        </div>
+        <div class="form-select-container">
+            <label class="form-label" for="categoryId"><span class="span">C</span>ategoría<span class="span">:</span></label>
+            <select class="form-select" name="categoryId" id="categoryId" aria-placeholder="Categoría">
+                <option selected disabled hidden>Seleccionar Categoría</option>
+                <% categorias.forEach(categoria => { %>
+                    <option value="<%= categoria.id %>"><%= categoria.name %></option>
+                <% }) %>
+            </select>
+        </div>
+        <div class="button-submit">
+            <button class="generic-button" type="submit"><span class="span">A</span>gregar➕</button>
+        </div>
+    </form>
+</div>
+
+    <div class="button-back button-back-view">
+        <a href="/productos"><span class="flechita">⬅</span> Volver</a>
+      </div>
+</body>
+</html>

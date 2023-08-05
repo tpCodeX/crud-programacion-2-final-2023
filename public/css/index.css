@@ -1,0 +1,26 @@
+a:active,
+a:visited,
+a:link{
+    color: rgb(161, 164, 161);
+    text-decoration: none;
+}
+
+.container{
+    text-align: left;
+    font-family: monospace;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: fit-content;
+    cursor: pointer;
+}
+
+.card-container{
+    width: 300px;
+    height: 100px;
+    font-size: 30px;
+}
+
+.card-title{
+    color:white
+}

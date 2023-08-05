@@ -4,6 +4,9 @@ import ICategory from '../Interfaces/ICategory';
 class CategoryServices {
   async getCategories() {
     const categorias = await prisma.category.findMany({
+      include:{
+        products:true
+      },
       where: {
         isVisible: true,
       },
@@ -97,10 +100,18 @@ class CategoryServices {
         "Error. La categoría que se quiere eliminar, no existe o ya fué eliminada."
       );
     }
-    const deletedCategoria = await prisma.category.delete({
-      where: { id: categoryID },
-    });
-    return deletedCategoria;
+    try{
+      await prisma.product.deleteMany({
+        where:{
+          categoryId:categoryID
+        }
+      })
+    }finally{
+      const deletedCategoria = await prisma.category.delete({
+        where: { id: categoryID },
+      });
+      return deletedCategoria;
+    }
   };
 
 

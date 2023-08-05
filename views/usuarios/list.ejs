@@ -8,50 +8,48 @@
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/categorias/tabla-styles.css">
     <link rel="stylesheet" href="/css/button-styles.css">
-    <link rel="stylesheet" href="/css/navbar.css">
 </head>
 <body>
-  <%- include('../navbar.ejs') %>
+    <%- include('../navbar.ejs') %>
     <h1 class="titulo">Lista de Categorías</h1>
     <div class="tabla-container">
     <table class="tabla">
         <thead>
             <th class="tabla-th" scope="col"><span class="span">I</span>D</th>
           <th class="tabla-th" scope="col"><span class="span">N</span>ombre</th>
-          <th class="tabla-th" scope="col"><span class="span">P</span>roductos</th>
+          <th class="tabla-th" scope="col">E<span class="span">-</span>Mail</th>
           <th class="tabla-th" scope="col"><span class="span">A</span>cciones</th>
         </thead>
         <tbody>
-          <% categorias.forEach(function(categoria) { %>
+          <% users.forEach(function(user) { %>
             <tr class="tabla-tr">
               <td class="tabla-td">
                 <span class="span">
-                  <%= categoria.id %>
+                  <%= user.id %>
                 </span>
               </td>
               <td class="tabla-td">
                 <span class="span">
-                  <%= categoria.name %>
+                  <%= user.userName %>
                 </span>
               </td>
               <td class="tabla-td">
-                <ul>
-                  <% categoria.products.forEach(product => { %>
-                    <span class="span"><li><%= product.name %></li></span>
-                  <% }) %>
-                </ul>
+                <span class="span">
+                  <%= user.email %>
+                </span>
               </td>
               <td class="tabla-td-icons">
                 <div class="tabla-icons">
-                        <form action="/categorias/edit/" method="POST">
-                            <input type="hidden" name="id" value="<%= categoria.id %>">
+                        <form action="/users/edit/" method="POST">
+                            <input type="hidden" name="id" value="<%= user.id %>">
                             <button type="submit" class="boton boton-edit"><i class="bi bi-pencil"></i></button>
                         </form>
-                        <form action="/categorias/delete/" method="POST">
-                            <input type="hidden" name="id" value="<%= categoria.id %>">
+                        <form action="/users/delete/" method="POST">
+                            <input type="hidden" name="id" value="<%= user.id %>">
                             <button type="submit" class="boton boton-delete"><i class="bi bi-trash"></i></button>
                         </form>
                 </div>

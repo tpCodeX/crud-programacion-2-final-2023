@@ -2,10 +2,10 @@ interface IProducto{
     id?:number,
     name:string,
     price:number,
-    createdAt?:string,
+    createdAt?:Date,
     stock:number,
     category?:string,
-    categoryId?:string,
+    categoryId?:number,
     isVisible?:boolean
 }
 

@@ -12,46 +12,47 @@
     <link rel="stylesheet" href="/css/categorias/tabla-styles.css">
     <link rel="stylesheet" href="/css/button-styles.css">
     <link rel="stylesheet" href="/css/navbar.css">
+
 </head>
 <body>
   <%- include('../navbar.ejs') %>
-    <h1 class="titulo">Lista de Categorías</h1>
+    <h1 class="titulo"><span class="span">Lista</span> de <span class="span">Productos</span></h1>
     <div class="tabla-container">
     <table class="tabla">
         <thead>
-            <th class="tabla-th" scope="col"><span class="span">I</span>D</th>
-          <th class="tabla-th" scope="col"><span class="span">N</span>ombre</th>
-          <th class="tabla-th" scope="col"><span class="span">P</span>roductos</th>
-          <th class="tabla-th" scope="col"><span class="span">A</span>cciones</th>
+            <th class="tabla-th" scope="col"><span class="span">ID</span></th>
+          <th class="tabla-th" scope="col">Nombre</th>
+          <th class="tabla-th" scope="col">Precio</th>
+          <th class="tabla-th" scope="col">Stock</th>
+          <th class="tabla-th" scope="col">Categoría</th>
+          <th class="tabla-th" scope="col"><span class="span">Acciones</span></th>
         </thead>
         <tbody>
-          <% categorias.forEach(function(categoria) { %>
+          <% products.forEach(function(product) { %>
             <tr class="tabla-tr">
               <td class="tabla-td">
-                <span class="span">
-                  <%= categoria.id %>
-                </span>
+                <%= product.id %>
               </td>
               <td class="tabla-td">
-                <span class="span">
-                  <%= categoria.name %>
-                </span>
+                <%= product.name %>
               </td>
               <td class="tabla-td">
-                <ul>
-                  <% categoria.products.forEach(product => { %>
-                    <span class="span"><li><%= product.name %></li></span>
-                  <% }) %>
-                </ul>
+                <%= product.price %>
+              </td>
+              <td class="tabla-td">
+                <%= product.stock %>
+              </td>
+              <td class="tabla-td">
+                <%= product.category.name %>
               </td>
               <td class="tabla-td-icons">
                 <div class="tabla-icons">
-                        <form action="/categorias/edit/" method="POST">
-                            <input type="hidden" name="id" value="<%= categoria.id %>">
+                        <form action="/productos/edit/" method="POST">
+                            <input type="hidden" name="id" value="<%= product.id %>">
                             <button type="submit" class="boton boton-edit"><i class="bi bi-pencil"></i></button>
                         </form>
-                        <form action="/categorias/delete/" method="POST">
-                            <input type="hidden" name="id" value="<%= categoria.id %>">
+                        <form action="/productos/delete/" method="POST">
+                            <input type="hidden" name="id" value="<%= product.id %>">
                             <button type="submit" class="boton boton-delete"><i class="bi bi-trash"></i></button>
                         </form>
                 </div>
@@ -62,10 +63,10 @@
       </table>
       </div>
       <div class="button-add button-add-listView">
-        <a href="/categorias/add/"><span class="span">A</span>gregar➕</a>
+        <a href="/productos/add/">Ag<span class="span">reg</span>ar➕</a>
       </div>
-      <div class="button-back button-back-categoryListView">
-        <a href="/"><span class="flechita">⬅</span> Volver</a>
+      <div class="button-back button-back-productListView">
+        <a href="/"><span class="flechita">⬅</span>Volver</a>
       </div>
       
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
